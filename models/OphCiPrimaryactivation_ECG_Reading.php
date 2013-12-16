@@ -25,7 +25,7 @@
  * @property string $name
  * @property string $ShortName
  */
-class OphCiPrimaryactivation_ECG_Reading extends BaseActiveRecord
+class OphCiPrimaryactivation_ECG_Reading extends BaseActiveRecordVersioned
 {
 	/**
 	 * Returns the static model of the specified AR class.
