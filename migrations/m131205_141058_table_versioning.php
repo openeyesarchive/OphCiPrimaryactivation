@@ -114,10 +114,8 @@ CREATE TABLE `ophciprimaryactivation_ecg_reading_version` (
 	public function down()
 	{
 		$this->dropColumn('ophciprimaryactivation_ecg_reading','deleted');
-		$this->dropColumn('ophciprimaryactivation_ecg_reading_version','deleted');
 
 		$this->dropColumn('et_ophciprimaryactivation_details','deleted');
-		$this->dropColumn('et_ophciprimaryactivation_details_version','deleted');
 
 		$this->dropTable('et_ophciprimaryactivation_details_version');
 		$this->dropTable('ophciprimaryactivation_ecg_reading_version');
