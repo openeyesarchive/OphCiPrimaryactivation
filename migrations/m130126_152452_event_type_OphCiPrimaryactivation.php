@@ -23,7 +23,7 @@ class m130126_152452_event_type_OphCiPrimaryactivation extends CDbMigration
 
 		$this->createTable('ophciprimaryactivation_ecg_reading', array(
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
-				'name' => 'varchar(64) COLLATE utf8_bin NOT NULL',
+				'name' => 'varchar(64) NOT NULL',
 				'display_order' => 'tinyint(1) unsigned NOT NULL',
 				'last_modified_user_id' => 'int(10) unsigned NOT NULL DEFAULT 1',
 				'last_modified_date' => 'datetime NOT NULL DEFAULT \'1901-01-01 00:00:00\'',
@@ -34,7 +34,7 @@ class m130126_152452_event_type_OphCiPrimaryactivation extends CDbMigration
 				'KEY `et_ophciprimaryactivation_details_cui_fk` (`created_user_id`)',
 				'CONSTRAINT `et_ophciprimaryactivation_details_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)',
 				'CONSTRAINT `et_ophciprimaryactivation_details_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 		$this->insert('ophciprimaryactivation_ecg_reading',array('name'=>'Normal','display_order'=>1));
 		$this->insert('ophciprimaryactivation_ecg_reading',array('name'=>'ST elevation','display_order'=>2));
@@ -98,7 +98,7 @@ class m130126_152452_event_type_OphCiPrimaryactivation extends CDbMigration
 				'CONSTRAINT `et_ophciprimaryactivation_dr10_id_fk` FOREIGN KEY (`reading10_id`) REFERENCES `ophciprimaryactivation_ecg_reading` (`id`)',
 				'CONSTRAINT `et_ophciprimaryactivation_dr11_id_fk` FOREIGN KEY (`reading11_id`) REFERENCES `ophciprimaryactivation_ecg_reading` (`id`)',
 				'CONSTRAINT `et_ophciprimaryactivation_dr12_id_fk` FOREIGN KEY (`reading12_id`) REFERENCES `ophciprimaryactivation_ecg_reading` (`id`)',
-			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin');
+			), 'ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci');
 
 	}
 
