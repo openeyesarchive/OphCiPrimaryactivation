@@ -60,7 +60,7 @@ CREATE TABLE `et_ophciprimaryactivation_details_version` (
 	CONSTRAINT `acv_et_ophciprimaryactivation_dr10_id_fk` FOREIGN KEY (`reading10_id`) REFERENCES `ophciprimaryactivation_ecg_reading` (`id`),
 	CONSTRAINT `acv_et_ophciprimaryactivation_dr11_id_fk` FOREIGN KEY (`reading11_id`) REFERENCES `ophciprimaryactivation_ecg_reading` (`id`),
 	CONSTRAINT `acv_et_ophciprimaryactivation_dr12_id_fk` FOREIGN KEY (`reading12_id`) REFERENCES `ophciprimaryactivation_ecg_reading` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophciprimaryactivation_details_version','id','int(10) unsigned NOT NULL');
@@ -78,7 +78,7 @@ CREATE TABLE `et_ophciprimaryactivation_details_version` (
 		$this->execute("
 CREATE TABLE `ophciprimaryactivation_ecg_reading_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`name` varchar(64) COLLATE utf8_bin NOT NULL,
+	`name` varchar(64) NOT NULL,
 	`display_order` tinyint(1) unsigned NOT NULL,
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
@@ -89,7 +89,7 @@ CREATE TABLE `ophciprimaryactivation_ecg_reading_version` (
 	KEY `acv_et_ophciprimaryactivation_details_cui_fk` (`created_user_id`),
 	CONSTRAINT `acv_et_ophciprimaryactivation_details_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophciprimaryactivation_details_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('ophciprimaryactivation_ecg_reading_version','id','int(10) unsigned NOT NULL');
