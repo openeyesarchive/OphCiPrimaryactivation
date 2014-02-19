@@ -37,7 +37,8 @@
 			for ($i=0; $i<3; $i++) {
 				for ($j=0; $j<4; $j++) {?>
 					<span class="readingLabel"><?php echo CHtml::encode($element->getAttributeLabel('reading'.($n).'_id'))?></span>
-					<?php echo $form->dropDownList($element, 'reading'.($n++).'_id', CHtml::listData(OphCiPrimaryactivation_ECG_Reading::model()->findAll(array('order'=>'display_order')),'id','name'),array('nowrapper'=>true, 'class'=>'readingValue', 'disabled' => ($element->lbbb || $element->rbbb)));
+					<?php echo $form->dropDownList($element, 'reading'.$n.'_id', CHtml::listData(OphCiPrimaryactivation_ECG_Reading::model()->notDeletedOrPk($element->{'reading'.$n.'_id'})->findAll(array('order'=>'display_order')),'id','name'),array('nowrapper'=>true, 'class'=>'readingValue', 'disabled' => ($element->lbbb || $element->rbbb)));
+					$n++;
 				}
 				echo "<br/>";
 			}?>
